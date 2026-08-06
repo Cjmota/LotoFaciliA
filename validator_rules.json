@@ -1,0 +1,33 @@
+[
+    {
+        "nome": "Pares",
+        "atributo": "pares",
+        "minimo": 5,
+        "maximo": 9,
+        "mensagem": "Quantidade de pares fora do padrão"
+    },
+
+    {
+        "nome": "Baixas",
+        "atributo": "baixas",
+        "minimo": 6,
+        "maximo": 10,
+        "mensagem": "Quantidade de baixas fora do padrão"
+    },
+
+    {
+        "nome": "Centro",
+        "atributo": "centro",
+        "minimo": 3,
+        "maximo": 7,
+        "mensagem": "Centro improvável"
+    },
+
+    {
+        "nome": "Consecutivos",
+        "atributo": "consecutivos",
+        "minimo": 5,
+        "maximo": 10,
+        "mensagem": "Quantidade de consecutivos fora do padrão"
+    }
+]

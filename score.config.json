@@ -1,0 +1,13 @@
+{
+    "Pares": 1.20,
+    "Baixas": 1.20,
+    "Consecutivos": 1.30,
+    "Faixa_Soma": 1.50,
+    "Centro": 1.00,
+    "Moldura": 1.00,
+    "Linhas": 1.60,
+    "Colunas": 1.60,
+    "Primos": 0.70,
+    "Fibonacci": 0.40,
+    "Multiplos3": 0.50
+}

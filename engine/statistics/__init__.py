@@ -1,0 +1,13 @@
+from engine.statistics.pair_statistics import PairStatistics
+from engine.statistics.prime_statistics import PrimeStatistics
+from engine.statistics.fibonacci_statistics import FibonacciStatistics
+from engine.statistics.center_statistics import CenterStatistics
+from engine.statistics.border_statistics import BorderStatistics
+from engine.statistics.multiple3_statistics import Multiple3Statistics
+from engine.statistics.low_statistics import LowStatistics
+from engine.statistics.consecutive_statistics import ConsecutiveStatistics
+from engine.statistics.sum_range_statistics import SumRangeStatistics
+from engine.statistics.line_statistics import LineStatistics
+from engine.statistics.column_statistics import ColumnStatistics
+from .high_statistics import HighStatistics
+
