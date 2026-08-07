@@ -4,6 +4,7 @@ from analysis.feature import Feature
 from analysis.prediction import Prediction
 from analysis.probability_result import ProbabilityResult
 from analysis.statistics_result import StatisticsResult
+from analysis.markov_result import MarkovResult
 
 
 def test_deve_criar_prediction():
@@ -45,5 +46,5 @@ def test_deve_criar_prediction():
         StatisticsResult
     )
     assert prediction.analysis.bayes == {}
-    assert prediction.analysis.markov == {}
+    assert prediction.analysis.markov.soma is None
     assert prediction.analysis.score == {}

@@ -6,6 +6,8 @@ from dataclasses import field
 from analysis.feature import Feature
 from analysis.statistics_result import StatisticsResult
 
+from analysis.markov_result import MarkovResult
+
 
 @dataclass(slots=True)
 class AnalysisResult:
@@ -22,8 +24,8 @@ class AnalysisResult:
         default_factory=dict
     )
 
-    markov: dict = field(
-        default_factory=dict
+    markov: MarkovResult = field(
+        default_factory=MarkovResult
     )
 
     score: dict = field(
@@ -66,15 +68,13 @@ class AnalysisResult:
     def _markov(
         cls,
         metadata: dict
-    ) -> dict:
+    ) -> MarkovResult:
 
-        return {
+        return MarkovResult(
 
-            "soma": metadata.get(
-                "markov_soma"
-            )
+            soma=metadata.get("markov_soma")
 
-        }
+        )
     
     @classmethod
     def _bayes(cls, metadata):
@@ -91,25 +91,6 @@ class AnalysisResult:
         return {
 
             "final": metadata.get("score")
-
-        }
-    
-    @staticmethod
-    def _group(
-        metadata: dict,
-        prefixo: str,
-        nomes: list[str]
-    ) -> dict:
-
-        return {
-
-            nome: metadata.get(
-
-                f"{prefixo}_{nome}"
-
-            )
-
-            for nome in nomes
 
         }
     
