@@ -1,3 +1,4 @@
+from analysis.analyzer import Analyzer
 from analysis.historico_statistics import HistoricoStatistics
 from analysis.markov_builder import MarkovBuilder
 from analysis.markov_stage import MarkovStage
@@ -17,7 +18,7 @@ from operator import attrgetter
 
 
 @dataclass(slots=True)
-class AnalysisPipeline:
+class AnalysisPipeline(Analyzer):
 
     extractor: FeatureExtractor
 
