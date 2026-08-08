@@ -1,9 +1,6 @@
 from dataclasses import dataclass
 
-from altair import Feature
-
-from analysis import analysis_result
-from analysis.analysis_result import AnalysisResult
+from analysis.analysis_builder import AnalysisBuilder
 from analysis.analyzer import Analyzer
 from analysis.prediction import Prediction
 from domain.concurso import Concurso
@@ -13,6 +10,7 @@ from domain.concurso import Concurso
 class PredictionEngine:
 
     analyzer: Analyzer
+    builder: AnalysisBuilder
 
     def predict(
         self,
@@ -21,23 +19,14 @@ class PredictionEngine:
 
         feature = self.analyzer.analisar(concurso)
 
-        analysis = AnalysisResult.from_feature(
+        analysis = self.builder.build(
             feature
         )
-        
+
         return Prediction(
-        
             feature=feature,
-
             analysis=analysis
-
         )
     
-    def _analysis_result(
-        self,
-        feature: Feature
-    ) -> AnalysisResult:
-        
-        return AnalysisResult.from_feature(feature)
-        
+    
         

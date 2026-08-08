@@ -15,3 +15,5 @@ class Prediction:
         default_factory=AnalysisResult
 
     )
+    
+    

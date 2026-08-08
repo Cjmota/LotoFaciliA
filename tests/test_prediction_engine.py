@@ -1,5 +1,6 @@
 from datetime import date
 
+from analysis.analysis_builder import AnalysisBuilder
 from analysis.analysis_pipeline import AnalysisPipeline
 from analysis.prediction import Prediction
 from analysis.prediction_engine import PredictionEngine
@@ -16,7 +17,11 @@ def test_deve_predizer():
     )
 
     engine = PredictionEngine(
-        pipeline
+
+        pipeline,
+
+        AnalysisBuilder()
+
     )
 
     concurso = Concurso(
