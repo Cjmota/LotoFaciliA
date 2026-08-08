@@ -1,5 +1,5 @@
 from datetime import date
-
+from analysis.feature_metadata import FeatureMetadata
 from analysis.feature import Feature
 from analysis.markov_builder import MarkovBuilder
 from analysis.markov_stage import MarkovStage
@@ -37,7 +37,7 @@ def test_deve_adicionar_probabilidade_markov():
 
         lambda feature: feature.soma,
 
-        "markov_soma"
+        FeatureMetadata.MARKOV_SOMA
 
     )
 
@@ -63,4 +63,6 @@ def test_deve_adicionar_probabilidade_markov():
 
     )
 
-    assert resultado.metadata["markov_soma"] == 1.0
+    assert resultado.metadata[
+        FeatureMetadata.MARKOV_SOMA
+    ] == 1.0

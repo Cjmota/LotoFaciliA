@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from analysis.feature_metadata import FeatureMetadata
 from analysis.analysis_result import AnalysisResult
 from analysis.feature import Feature
 from analysis.probability_result import ProbabilityResult
@@ -32,7 +33,9 @@ class AnalysisBuilder:
     ) -> dict:
 
         return {
-            "posterior": metadata.get("bayes")
+            "posterior": metadata.get(
+                FeatureMetadata.BAYES
+            )
         }
 
     def _score(
@@ -41,7 +44,9 @@ class AnalysisBuilder:
     ) -> dict:
 
         return {
-            "final": metadata.get("score")
+            "final": metadata.get(
+                FeatureMetadata.SCORE
+            )
         }
 
     def _markov(
@@ -50,7 +55,9 @@ class AnalysisBuilder:
     ) -> MarkovResult:
 
         return MarkovResult(
-            soma=metadata.get("markov_soma")
+            soma=metadata.get(
+                FeatureMetadata.MARKOV_SOMA
+            )
         )
 
     def _probability(
@@ -60,17 +67,12 @@ class AnalysisBuilder:
 
         return ProbabilityResult(
 
-            soma=metadata.get("prob_soma"),
-
-            pares=metadata.get("prob_pares"),
-
-            impares=metadata.get("prob_impares"),
-
-            consecutivos=metadata.get("prob_consecutivos"),
-
-            linhas=metadata.get("prob_linhas"),
-
-            colunas=metadata.get("prob_colunas")
+            soma=metadata.get(FeatureMetadata.PROB_SOMA),
+            pares=metadata.get(FeatureMetadata.PROB_PARES),
+            impares=metadata.get(FeatureMetadata.PROB_IMPARES),
+            consecutivos=metadata.get(FeatureMetadata.PROB_CONSECUTIVOS),
+            linhas=metadata.get(FeatureMetadata.PROB_LINHAS),
+            colunas=metadata.get(FeatureMetadata.PROB_COLUNAS)
 
         )
     
@@ -81,12 +83,20 @@ class AnalysisBuilder:
 
         return StatisticsResult(
 
-            soma=metadata.get("zscore_soma"),
+            soma=metadata.get(
+                FeatureMetadata.ZSCORE_SOMA
+            ),
 
-            pares=metadata.get("zscore_pares"),
+            pares=metadata.get(
+                FeatureMetadata.ZSCORE_PARES
+            ),
 
-            impares=metadata.get("zscore_impares"),
+            impares=metadata.get(
+                FeatureMetadata.ZSCORE_IMPARES
+            ),
 
-            consecutivos=metadata.get("zscore_consecutivos")
+            consecutivos=metadata.get(
+                FeatureMetadata.ZSCORE_CONSECUTIVOS
+            )
 
         )

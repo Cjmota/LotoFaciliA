@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+from analysis.feature_metadata import FeatureMetadata
 from analysis.bayes import Bayes
 from analysis.bayes_evidence import BayesEvidence
 from analysis.feature import Feature
@@ -22,13 +22,13 @@ class BayesStage(MetadataStage):
 
         for chave in (
 
-            "prob_soma",
+            FeatureMetadata.PROB_SOMA,
 
-            "prob_pares",
+            FeatureMetadata.PROB_PARES,
 
-            "prob_impares",
+            FeatureMetadata.PROB_IMPARES,
 
-            "prob_consecutivos"
+            FeatureMetadata.PROB_CONSECUTIVOS
 
         ):
 
@@ -45,14 +45,11 @@ class BayesStage(MetadataStage):
                 )
 
         priori = metadata.get(
-
-            "score",
-
+            FeatureMetadata.SCORE,
             1.0
-
         )
 
-        metadata["bayes"] = self.bayes.posterior(
+        metadata[FeatureMetadata.BAYES] = self.bayes.posterior(
 
             priori=priori,
 

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+from analysis.feature_metadata import FeatureMetadata
 from analysis.feature import Feature
 from analysis.metadata_stage import MetadataStage
 
@@ -35,7 +35,7 @@ class ScoreStage(MetadataStage):
 
         metadata = dict(feature.metadata)
 
-        metadata["score"] = self._calcular_score(
+        metadata[FeatureMetadata.SCORE] = self._calcular_score(
             metadata
         )
 

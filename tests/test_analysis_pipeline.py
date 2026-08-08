@@ -2,6 +2,7 @@ from analysis.analysis_pipeline import AnalysisPipeline
 from analysis.feature_extractor import FeatureExtractor
 from analysis.feature_pipeline import FeaturePipeline
 from analysis.metadata_stage import MetadataStage
+from analysis.feature_metadata import FeatureMetadata
 from domain.historico import Historico
 from analysis.feature import Feature
 from domain.concurso import Concurso
@@ -164,11 +165,11 @@ def test_deve_analisar_concurso():
 
     )
 
-    assert "prob_soma" in feature.metadata
+    assert FeatureMetadata.PROB_SOMA in feature.metadata
 
-    assert "zscore_soma" in feature.metadata
+    assert FeatureMetadata.ZSCORE_SOMA in feature.metadata
 
-    assert "bayes" in feature.metadata
+    assert FeatureMetadata.BAYES in feature.metadata
 
-    assert "score" in feature.metadata
+    assert FeatureMetadata.SCORE in feature.metadata
 

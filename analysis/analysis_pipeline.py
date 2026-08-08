@@ -6,6 +6,7 @@ from analysis.probability_stage import ProbabilityStage
 from analysis.historico_analyzer import HistoricoAnalyzer
 from analysis.feature_extractor import FeatureExtractor
 from analysis.feature_pipeline import FeaturePipeline
+from analysis.feature_metadata import FeatureMetadata
 from analysis.statistics_stage import StatisticsStage
 from analysis.score_stage import ScoreStage
 from analysis.bayes_stage import BayesStage
@@ -84,7 +85,7 @@ class AnalysisPipeline(Analyzer):
 
                 attrgetter("soma"),
 
-                "markov_soma"
+                FeatureMetadata.MARKOV_SOMA
 
             ),
 

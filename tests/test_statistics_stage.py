@@ -1,4 +1,5 @@
 from analysis.feature import Feature
+from analysis.feature_metadata import FeatureMetadata
 from analysis.statistics_stage import StatisticsStage
 from analysis.historico_analyzer import HistoricoAnalyzer
 from analysis.historico_statistics import HistoricoStatistics
@@ -26,7 +27,7 @@ def test_deve_adicionar_zscore_da_soma():
 
         attrgetter("soma"),
 
-        "zscore_soma",
+        FeatureMetadata.ZSCORE_SOMA,
 
         statistics
 
@@ -50,7 +51,7 @@ def test_deve_adicionar_zscore_da_soma():
 
     resultado = stage.processar(feature)
 
-    assert "zscore_soma" in resultado.metadata
+    assert FeatureMetadata.ZSCORE_SOMA in resultado.metadata
 
 def test_deve_calcular_zscore():
 
