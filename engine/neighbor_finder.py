@@ -20,9 +20,31 @@ class NeighborFinder:
         if not valores:
             return None
 
+        # Categorias vetoriais:
+        # Linhas e Colunas.
+        if (
+            isinstance(procurado, tuple)
+            and isinstance(valores[0], tuple)
+        ):
+
+            return min(
+                valores,
+                key=lambda valor: sum(
+                    abs(a - b)
+                    for a, b in zip(
+                        valor,
+                        procurado
+                    )
+                )
+            )
+
+        # Categorias numéricas:
+        # Pares, Fibonacci, Consecutivos etc.
         return min(
             valores,
-            key=lambda valor: abs(valor - procurado)
+            key=lambda valor: abs(
+                valor - procurado
+            )
         )
 
     def lower(

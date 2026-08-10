@@ -1,0 +1,44 @@
+                  HISTÓRICO
+                     │
+                     ▼
+             ┌─────────────────┐
+             │ AnalysisPipeline│
+             └────────┬────────┘
+                      │
+                      ▼
+                   Feature
+                      │
+                      ▼
+               AnalysisBuilder
+                      │
+                      ▼
+                AnalysisResult
+                      │
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+          ▼                       ▼
+     decisão/estratégia      parâmetros
+          │                       │
+          └───────────┬───────────┘
+                      ▼
+                GERADOR
+                      │
+                      ▼
+               combinações
+                      │
+                      ▼
+                   Game
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+    Probability    Score      Validator
+       Engine      Engine       Engine
+          │           │           │
+          └───────────┴───────────┘
+                      │
+                      ▼
+                RankingEngine
+                      │
+                      ▼
+                melhores jogos

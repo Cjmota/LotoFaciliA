@@ -1,5 +1,7 @@
 import json
 
+import ast
+
 from copy import deepcopy
 
 from pathlib import Path
@@ -171,25 +173,53 @@ class WeightRepository:
     
     def valores(self, categoria):
 
-        return tuple(
+        valores = self._dados.get(
+            categoria,
+            {}
+        ).keys()
 
-            sorted(
+        try:
 
-                map(
-
-                    int,
-
-                    self._dados
-
-                        .get(categoria, {})
-
-                        .keys()
-
+            return tuple(
+                sorted(
+                    map(
+                        int,
+                        valores
+                    )
                 )
-
             )
 
-        )
+        except ValueError:
+
+            resultado = []
+
+            for valor in valores:
+
+                texto = str(valor).strip()
+
+                if (
+                    texto.startswith("(")
+                    and texto.endswith(")")
+                ):
+
+                    try:
+
+                        resultado.append(
+                            ast.literal_eval(texto)
+                        )
+
+                    except (
+                        ValueError,
+                        SyntaxError
+                    ):
+
+                        resultado.append(texto)
+
+                else:
+
+                    resultado.append(texto)
+
+            return tuple(resultado)
     
     def sem_valor(
 
